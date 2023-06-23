@@ -48,6 +48,9 @@ int main()
             }
         }
         if (rgba["1"] == rgba["2"])
-            if ()
-                else
+            if (rgba["2"] == rgba["3"])
+                if (rgba["3"] == rgba["4"])
+                    if (rgba["4"] == rgba["5"])
+                        cout << "no defect" else cout << "defect is at 5", rgba["4"];
+                    else
     }
