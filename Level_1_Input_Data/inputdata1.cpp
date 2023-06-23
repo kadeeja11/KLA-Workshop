@@ -2,7 +2,19 @@
 #include <fstream>
 #include <json.hpp>
 using namespace std;
-int main()
+
+// creating a struct variable to get the info about each pixel;
+struct rgba
+{
+    int dieno;
+    int x;
+    int y;
+    string pixels;
+
+}
+
+int
+main()
 {
     // opening the json file
     Json::Value input;
@@ -10,9 +22,9 @@ int main()
     input_file >> input;
     // printing the json file
     cout << input;
-    for (int k = 0; k < (800 * 600); k++)
+    for (int h = 0; h < (800 * 600); h++)
     {
-        for (int i = 1; i <= 5; i++)
+        for (int k = 1; k <= 5; k++)
         {
             // reading the image in rgba format
             Magick::Blob blob(data, length);
@@ -21,45 +33,66 @@ int main()
                 image.magick("RGBA");
             image.read(blob);
             // opening the image in rgba format
-            image.write("wafer_image_", i, ".png");
-            // logic
-            //  for(int j = input["care_areas"]["top_left"]["y"];j<input["care_areas"]["bottom_right"]["y"];j--)
-            //  {
-            //      for(int i=input["care_areas"]["top_left"]["x"];i<input["care_areas"]["bottom_right"]["x"];i++)
-            //      {
-            //          //store all
+            image.write("wafer_image_", k, ".png");
 
-            //     }
-            // }
+            // store the boundaries
             int j = 600;
             int i = 0;
-            while (input["care_areas"]["top_left"]["y"] <= 600)
+            while (j >= 0)
             {
-                while (input["care_areas"]["bottom_right"]["x"] <= 800)
+                while (i <= 800)
                 {
-                    // open a json file to store die no as key and the rgba value as value and exit
-                    // store the same for all the 5 images, check if all five are same, if they are not,
-                    // get the die value and x&y coordinate
-                    struct rgba
-                    {
-                        int dieno;
-                        int x;
-                        int y;
+                    // storing the die no and rgba values in the struct variable
+                    rgba rgba1; // dynamically create struct variables for 1-5
+                    rgba1.dieno = k;
+                    rgba1.x = i;
+                    rgba1.y = j;
+                    temp = image[x, y].toString();
+                    rgba1.pixels = temp;
 
-                    }
-                    rgba{
-                        i : (input["care_areas"]["bottom_right"]["x"], input["care_areas"]["top_left"]["y"])
-                    }
-                    // push the new rgba value such that there will be 5 values inside the json before
-                    // it checks for uniqueness
-                    exit();
+                    i++;
                 }
+                j--;
             }
         }
-        if (rgba["1"] == rgba["2"])
-            if (rgba["2"] == rgba["3"])
-                if (rgba["3"] == rgba["4"])
-                    if (rgba["4"] == rgba["5"])
-                        cout << "no defect" else cout << "defect is at 5", rgba["4"];
+        // based on majority, printing the minority ones as defect
+        if (rgba1.pixels == rgba2.pixels)
+            if (rgba2.pixels == rgba3.pixels)
+                if (rgba3.pixels == rgba4.pixels)
+                    if (rgba4.pixels == rgba5.pixels)
+                        cout << "no defect" else cout << "defect is at" << rgba5.dieno << "," << rgba5.x << "," << rgba5.y;
+                    else if (rgba3.pixels == rgba5.pixels || (rgba4.pixels != rgba5.pixels && rgba5.pixels == rgba3.pixels))
+                        cout << "defect is at" << rgba4.dieno << "," << rgba4.x << "," << rgba4.y;
+                    else if (rgba3.pixels != rgba4.pixels && rgba3.pixels != rgba5.pixels)
+                        cout << "defect is at" << rgba4.dieno << "," << rgba4.x << "," << rgba4.y;
+        cout << "defect is at" << rgba5.dieno << "," << rgba5.x << "," << rgba5.y;
+            else
+                if(rgba3.pixels == rgba4.pixels && (rgba3.pixels == rgba5.pixels)
+                    cout << "defect is at" << rgba1.dieno << "," << rgba1.x << "," << rgba1.y;
+                    cout << "defect is at" << rgba2.dieno << "," << rgba2.x << "," << rgba2.y;
+                else if (rgba3.pixels == rgba4.pixels && (rgba3.pixels != rgba5.pixels))
+                    if(rgba5.pixels == rgba2.pixels)
+                        cout << "defect is at" << rgba3.dieno << "," << rgba3.x << "," << rgba3.y;
+                        cout << "defect is at" << rgba4.dieno << "," << rgba4.x << "," << rgba4.y;
                     else
+                        cout << "defect is at" << rgba1.dieno << "," << rgba1.x << "," << rgba1.y;
+                        cout << "defect is at" << rgba2.dieno << "," << rgba2.x << "," << rgba2.y;
+                        cout << "defect is at" << rgba3.dieno << "," << rgba3.x << "," << rgba3.y;
+                        cout << "defect is at" << rgba4.dieno << "," << rgba4.x << "," << rgba4.y;
+                        cout << "defect is at" << rgba5.dieno << "," << rgba5.x << "," << rgba5.y;
+                else if(rgba3.pixels != rgba4.pixels && (rgba3.pixels == rgba5.pixels))
+                    if(rgba4.pixels == rgba2.pixels)
+                        cout << "defect is at" << rgba3.dieno << "," << rgba3.x << "," << rgba3.y;
+                        cout << "defect is at" << rgba4.dieno << "," << rgba4.x << "," << rgba4.y;
+                    else
+                        cout << "defect is at" << rgba1.dieno << "," << rgba1.x << "," << rgba1.y;
+                        cout << "defect is at" << rgba2.dieno << "," << rgba2.x << "," << rgba2.y;
+                else if(rgba3.pixels != rgba4.pixels && (rgba3.pixels == rgba5.pixels))
+                    if(rgba4.pixels == rgba2.pixels)
+                        cout << "defect is at" << rgba3.dieno << "," << rgba3.x << "," << rgba3.y;
+                        cout << "defect is at" << rgba5.dieno << "," << rgba5.x << "," << rgba5.y;
+                    else
+                        cout << "defect is at" << rgba1.dieno << "," << rgba1.x << "," << rgba1.y;
+                        cout << "defect is at" << rgba2.dieno << "," << rgba2.x << "," << rgba2.y;
     }
+}
