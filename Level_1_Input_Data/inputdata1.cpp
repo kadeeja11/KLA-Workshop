@@ -31,6 +31,8 @@ int main()
 
             //     }
             // }
+            int j = 600;
+            int i = 0;
             while (input["care_areas"]["top_left"]["y"] <= 600)
             {
                 while (input["care_areas"]["bottom_right"]["x"] <= 800)
@@ -38,6 +40,13 @@ int main()
                     // open a json file to store die no as key and the rgba value as value and exit
                     // store the same for all the 5 images, check if all five are same, if they are not,
                     // get the die value and x&y coordinate
+                    struct rgba
+                    {
+                        int dieno;
+                        int x;
+                        int y;
+
+                    }
                     rgba{
                         i : (input["care_areas"]["bottom_right"]["x"], input["care_areas"]["top_left"]["y"])
                     }
