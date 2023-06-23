@@ -69,18 +69,18 @@ int main()
         cout << "defect is at" << rgba5.dieno << "," << rgba5.x << "," << rgba5.y;
                     else
                         if(rgba3.pixels == rgba4.pixels && (rgba3.pixels == rgba5.pixels)
-                            cout << "defect is at" << rgba1.dieno << "," << rgba1.x << "," << rgba1.y;
-                            cout << "defect is at" << rgba2.dieno << "," << rgba2.x << "," << rgba2.y;
+                            cout<< "defect is at" << rgba1.dieno << "," << rgba1.x << "," << rgba1.y;
+                            cout<< "defect is at" << rgba2.dieno << "," << rgba2.x << "," << rgba2.y;
                         else if (rgba3.pixels == rgba4.pixels && (rgba3.pixels != rgba5.pixels))
                             if(rgba5.pixels == rgba2.pixels)
-                                cout << "defect is at" << rgba3.dieno << "," << rgba3.x << "," << rgba3.y;
-                                cout << "defect is at" << rgba4.dieno << "," << rgba4.x << "," << rgba4.y;
+                                cout<< "defect is at" << rgba3.dieno << "," << rgba3.x << "," << rgba3.y;
+                                cout<< "defect is at" << rgba4.dieno << "," << rgba4.x << "," << rgba4.y;
                         else
-                            cout << "defect is at" << rgba1.dieno << "," << rgba1.x << "," << rgba1.y;
-                            cout << "defect is at" << rgba2.dieno << "," << rgba2.x << "," << rgba2.y;
-                            cout << "defect is at" << rgba3.dieno << "," << rgba3.x << "," << rgba3.y;
-                            cout << "defect is at" << rgba4.dieno << "," << rgba4.x << "," << rgba4.y;
-                            cout << "defect is at" << rgba5.dieno << "," << rgba5.x << "," << rgba5.y;
+                            cout<< "defect is at" << rgba1.dieno << "," << rgba1.x << "," << rgba1.y;
+                            cout<< "defect is at" << rgba2.dieno << "," << rgba2.x << "," << rgba2.y;
+                            cout<< "defect is at" << rgba3.dieno << "," << rgba3.x << "," << rgba3.y;
+                            cout<< "defect is at" << rgba4.dieno << "," << rgba4.x << "," << rgba4.y;
+                            cout<< "defect is at" << rgba5.dieno << "," << rgba5.x << "," << rgba5.y;
             else if(rgba3.pixels != rgba4.pixels && (rgba3.pixels == rgba5.pixels))
                 if(rgba4.pixels == rgba2.pixels)
                     cout << "defect is at" << rgba3.dieno << "," << rgba3.x << "," << rgba3.y;
